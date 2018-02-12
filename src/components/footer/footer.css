@@ -1,0 +1,12 @@
+.home-footer {
+  color: rgba(255, 255, 255, .5);
+}
+
+.gallery-footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.gallery-footer p {
+  margin-bottom: .25rem;
+}
