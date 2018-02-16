@@ -1,42 +1,64 @@
 import React from 'react';
-import Header from '../../components/header/header';
-import Footer from '../../components/footer/footer';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import Home from '../home/home';
 import Gallery from '../gallery/gallery';
 import 'bootstrap/dist/css/bootstrap.css';
 import './app.css';
 
 class App extends React.Component {
-  initHtmlStyle = '';
-  initBodyStyle = '';
-  isLoggedIn = true;
+  initHtmlStyle = null;
+  initBodyStyle = null;
+
+  constructor(props) {
+    super(props);
+    this.state = { isLoggedIn: false };
+
+    this.handleLogIn = this.handleLogIn.bind(this);
+    this.handleLogOut = this.handleLogOut.bind(this);
+  }
 
   componentDidMount() {
-    if (this.isLoggedIn) {
-      return;
-    }
-
-    this.initHtmlStyle = document.documentElement.className;
-    document.documentElement.className = this.initHtmlStyle + "home-html-body";
-
-    this.initBodyStyle = document.body.className;
-    document.body.className = this.initBodyStyle + "home-html-body home-body text-center";
+    this.setGlobalStyles();
   }
 
   componentWillUnmount() {
     // document.body.className = null;
   }
 
+  componentDidUpdate() {
+    this.setGlobalStyles();
+  }
+
+  handleLogIn() {
+    this.setState({ isLoggedIn: true });
+  }
+
+  handleLogOut() {
+    this.setState({ isLoggedIn: false });
+  }
+
+  setGlobalStyles() {
+    this.initHtmlStyle = this.initHtmlStyle || document.documentElement.className;
+    this.initBodyStyle = this.initBodyStyle || document.body.className;
+
+    document.documentElement.className = this.initHtmlStyle;
+    document.body.className = this.initBodyStyle;
+
+    if (!this.state.isLoggedIn) {
+      document.documentElement.className += "home-html-body";
+      document.body.className += "home-html-body home-body text-center";
+    }
+  }
+
   render() {
-    const containerStyle = this.isLoggedIn ? "" : "home-container d-flex h-100 p-3 mx-auto flex-column";
-    const appBody = this.isLoggedIn ? <Gallery /> : <Home />;
+    const isLoggedIn = this.state.isLoggedIn;
 
     return (
-      <div className={containerStyle}>
-        <Header isLoggedIn={this.isLoggedIn} />
-        {appBody}
-        <Footer isLoggedIn={this.isLoggedIn} />
-      </div>
+      <Switch>
+        <Route exact path="/" render={() => (<Redirect to={isLoggedIn ? "/gallery" : "/home"} />)} />
+        <Route exact path="/home" render={props => (<Home {...props} onLogIn={this.handleLogIn} />)} />
+        <Route exact path="/gallery" render={props => (<Gallery {...props} onLogOut={this.handleLogOut} />)} />
+      </Switch>
     );
   }
 }

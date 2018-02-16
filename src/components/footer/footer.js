@@ -1,7 +1,7 @@
 import React from 'react';
 import './footer.css';
 
-const HomeFooter = (props) => {
+export const HomeFooter = (props) => {
   return (
     <footer className="home-footer mt-auto">
       <div className="inner">
@@ -11,7 +11,7 @@ const HomeFooter = (props) => {
   );
 }
 
-const GalleryFooter = (props) => {
+export const GalleryFooter = (props) => {
   return (
     <footer className="gallery-footer text-muted">
       <div className="container">
@@ -24,11 +24,3 @@ const GalleryFooter = (props) => {
     </footer>
   );
 }
-
-const Footer = ({ isLoggedIn }) => {
-  return (
-    isLoggedIn ? <GalleryFooter /> : <HomeFooter />
-  );
-};
-
-export default Footer;

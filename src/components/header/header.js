@@ -1,8 +1,8 @@
 import React from 'react';
-import { Nav, NavLink, Navbar, NavbarBrand } from 'reactstrap';
+import { Nav, NavLink, Navbar, NavbarBrand, Button } from 'reactstrap';
 import './header.css';
 
-const HomeHeader = (props) => {
+export const HomeHeader = (props) => {
   return (
     <header className="home-header mb-auto">
       <div className="inner">
@@ -17,7 +17,7 @@ const HomeHeader = (props) => {
   );
 };
 
-const GalleryHeader = (props) => {
+export const GalleryHeader = (props) => {
   return (
     <header>
       {/* <div class="collapse bg-dark" id="navbarHeader">
@@ -41,23 +41,13 @@ const GalleryHeader = (props) => {
 
       <Navbar tag="div" dark color="dark" className="gallery-header-box-shadow">
         <div class="container d-flex justify-content-between">
-          <NavbarBrand href="#" className="d-flex align-items-center">
+          <NavbarBrand tag="span" className="d-flex align-items-center">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
             <strong>Album</strong>
           </NavbarBrand>
-          {/* <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button> */}
+          <Button href="#" color="link" className="no-underline font-weight-bold text-white border-0 px-0">Log out</Button>
         </div>
       </Navbar>
     </header>
   );
 };
-
-const Header = ({ isLoggedIn }) => {
-  return (
-    isLoggedIn ? <GalleryHeader /> : <HomeHeader />
-  );
-};
-
-export default Header;
