@@ -7,9 +7,11 @@ import cardImage from './IMG_0128.JPG'
 class Gallery extends React.Component {
 
   render() {
+    const handleLogOutClick = this.props.onLogOut;
+
     return (
       <div>
-        <GalleryHeader />
+        <GalleryHeader onLogOut={handleLogOutClick} />
         <main role="main">
 
           {/* <section class="jumbotron text-center">

@@ -8,9 +8,7 @@ export const HomeHeader = (props) => {
       <div className="inner">
         <h3 className="home-header-brand">Cover</h3>
         <Nav className="home-header-nav justify-content-center">
-          <NavLink active href="#">Home</NavLink>
-          <NavLink href="#">Features</NavLink>
-          <NavLink href="#">Contact</NavLink>
+          <NavLink active href="#">Contact</NavLink>
         </Nav>
       </div>
     </header>
@@ -18,6 +16,9 @@ export const HomeHeader = (props) => {
 };
 
 export const GalleryHeader = (props) => {
+
+  const handleLogOutClick = props.onLogOut;
+
   return (
     <header>
       {/* <div class="collapse bg-dark" id="navbarHeader">
@@ -40,12 +41,12 @@ export const GalleryHeader = (props) => {
       </div> */}
 
       <Navbar tag="div" dark color="dark" className="gallery-header-box-shadow">
-        <div class="container d-flex justify-content-between">
+        <div className="container d-flex justify-content-between">
           <NavbarBrand tag="span" className="d-flex align-items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
             <strong>Album</strong>
           </NavbarBrand>
-          <Button href="#" color="link" className="no-underline font-weight-bold text-white border-0 px-0">Log out</Button>
+          <Button color="link" onClick={handleLogOutClick} className="no-underline font-weight-bold text-white border-0 px-0">Log out</Button>
         </div>
       </Navbar>
     </header>
