@@ -2,7 +2,7 @@ import React from 'react';
 import { GalleryHeader } from '../../components/header/header';
 import { GalleryFooter } from '../../components/footer/footer';
 import CardImageGroup from '../../components/card-image-group/card-image-group';
-import cardImage from './IMG_0128.JPG'
+import cardImage from './testCardImg.JPG'
 
 class Gallery extends React.Component {
 

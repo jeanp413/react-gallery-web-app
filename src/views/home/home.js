@@ -16,7 +16,7 @@ class Home extends React.Component {
 
     return (
       <div className="home-container d-flex h-100 p-3 mx-auto">
-        <div className="d-flex flex-column" style={{ zIndex: 0 }}>
+        <div className="home-inner d-flex flex-column">
           <HomeHeader />
           <main role="main" className="inner cover">
             <h1 className="cover-heading">Cover your page.</h1>

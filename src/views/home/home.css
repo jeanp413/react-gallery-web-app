@@ -2,6 +2,10 @@
   max-width: 42em;
 }
 
+.home-inner {
+  z-index: 0;;
+}
+
 .cover {
   padding: 0 1.5rem;
 }
